@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>机器学习算法天气预测可视化</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   <style>
+        body {
+                background-image: url('./R.gif');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.6); /* 为了增强可读性，添加半透明的白色背景 */
+            padding: 20px;
+            border-radius: 15px;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .submit-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>机器学习算法天气预测可视化</h1>
+        <form method="post" action="/predict">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="MinTemp">最低温</label>
+                    <input type="number" id="MinTemp" name="MinTemp" class="form-control" placeholder="请输入最低温">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="MaxTemp">最高温</label>
+                    <input type="number" id="MaxTemp" name="MaxTemp" class="form-control" placeholder="请输入最高温">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="Rainfall">降雨量</label>
+                    <input type="number" id="Rainfall" name="Rainfall" class="form-control" placeholder="请输入降雨量">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="Evaporation">蒸发量</label>
+                    <input type="number" id="Evaporation" name="Evaporation" class="form-control" placeholder="请输入蒸发量">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="Sunshine">日照</label>
+                    <input type="number" id="Sunshine" name="Sunshine" class="form-control" placeholder="请输入日照">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="WindGustDir">风向</label>
+                    <input type="text" id="WindGustDir" name="WindGustDir" class="form-control" placeholder="请输入风向">
+                </div>
+                <div class="mb-3">
+                <label for="WindGustSpeed" class="form-label">风速</label>
+                <input type="number" id="WindGustSpeed" name="WindGustSpeed" class="form-control" placeholder="请输入风速">
+            </div>
+            <div class="mb-3">
+                <label for="WindDir9am" class="form-label">早九点风向</label>
+                <input type="text" id="WindDir9am" name="WindDir9am" class="form-control" placeholder="请输入早九点风向">
+            </div>
+            <div class="mb-3">
+                <label for="WindDir3pm" class="form-label">下午三点风向</label>
+                <input type="text" id="WindDir3pm" name="WindDir3pm" class="form-control" placeholder="请输入下午三点风向">
+            </div>
+            <div class="mb-3">
+                <label for="WindSpeed9am" class="form-label">早九点风速</label>
+                <input type="number" id="WindSpeed9am" name="WindSpeed9am" class="form-control" placeholder="请输入早九点风速">
+            </div>
+            <div class="mb-3">
+                <label for="WindSpeed3pm" class="form-label">下午三点风速</label>
+                <input type="number" id="WindSpeed3pm" name="WindSpeed3pm" class="form-control" placeholder="请输入下午三点风速">
+            </div>
+            <div class="mb-3">
+                <label for="Humidity9am" class="form-label">早九点湿度</label>
+                <input type="number" id="Humidity9am" name="Humidity9am" class="form-control" placeholder="请输入早九点湿度">
+            </div>
+            <div class="mb-3">
+                <label for="Humidity3pm" class="form-label">下午三点湿度</label>
+                <input type="number" id="Humidity3pm" name="Humidity3pm" class="form-control" placeholder="请输入下午三点湿度">
+            </div>
+            <div class="mb-3">
+                <label for="Pressure9am" class="form-label">早九点气压</label>
+                <input type="number" id="Pressure9am" name="Pressure9am" class="form-control" placeholder="请输入早九点气压">
+            </div>
+            <div class="mb-3">
+                <label for="Pressure3pm" class="form-label">下午三点气压</label>
+                <input type="number" id="Pressure3pm" name="Pressure3pm" class="form-control" placeholder="请输入下午三点气压">
+            </div>
+            <div class="mb-3">
+                <label for="Cloud9am" class="form-label">早九点云层</label>
+                <input type="number" id="Cloud9am" name="Cloud9am" class="form-control" placeholder="请输入早九点云层">
+            </div>
+            <div class="mb-3">
+                <label for="Cloud3pm" class="form-label">下午三点云层</label>
+                <input type="number" id="Cloud3pm" name="Cloud3pm" class="form-control" placeholder="请输入下午三点云层">
+            </div>
+            <div class="mb-3">
+                <label for="Temp9am" class="form-label">早九点温度</label>
+                <input type="number" id="Temp9am" name="Temp9am" class="form-control" placeholder="请输入早九点温度">
+            </div>
+            <div class="mb-3">
+                <label for="Temp3pm" class="form-label">下午三点温度</label>
+                <input type="number" id="Temp3pm" name="Temp3pm" class="form-control" placeholder="请输入下午三点温度">
+            </div>
+            <div class="mb-3">
+                <label for="RainToday" class="form-label">今天是否下雨</label>
+                <input type="number" id="RainToday" name="RainToday" class="form-control" placeholder="请输入0或者1">
+            </div>
+            </div>
+            <input type="submit" class="btn btn-primary submit-btn" value="提交数据">
+        </form>
+         <div class="result-section">
+            <h2>剩余时段下雨的结果是: {{ prediction }}</h2>
+        </div>
+    </div>
+</body>
+</html>

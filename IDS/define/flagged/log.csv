@@ -1,0 +1,4 @@
+MinTemp,MaxTemp,Rainfall,Evaporation,Sunshine,WindGustSpeed,WindSpeed9am,WindSpeed3pm,Humidity9am,Humidity3pm,Pressure9am,Pressure3pm,Cloud9am,Cloud3pm,Temp9am,Temp3pm,Rain Tomorrow,flag,username,timestamp
+30,30,1000,30,10,30,30,30,30,30,30,30,30,30,30,30,,,,2023-12-18 16:26:31.679806
+30,30,1000,30,30,30,30,30,30,30,30,30,30,30,30,30,Yes,,,2023-12-18 16:34:13.710000
+30,30,1000,30,30,30,30,30,30,30,30,30,30,30,30,30,Yes,,,2023-12-18 16:34:17.222178

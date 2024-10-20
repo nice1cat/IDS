@@ -1,0 +1,21 @@
+ body {
+            padding: 20px;
+            background-image: url('./R.gif'); /* 使用你的GIF文件路径 */
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-position: center; /* 背景图片居中显示 */
+        }
+ .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8); /* 为了增强可读性，添加半透明的白色背景 */
+            padding: 20px;
+            border-radius: 15px;
+        }
+ h1, h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+ .submit-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
